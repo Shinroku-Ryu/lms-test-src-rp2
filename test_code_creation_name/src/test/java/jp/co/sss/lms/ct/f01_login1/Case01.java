@@ -9,6 +9,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.openqa.selenium.By;
 
 /**
  * 結合テスト ログイン機能①
@@ -36,9 +37,12 @@ public class Case01 {
 	@DisplayName("テスト01 トップページURLでアクセス")
 	void test01() {
 		// TODO ここに追加
-		
-		String loginPage = "http://localhost:8080/lms/";
-		goTo(loginPage);
+		//トップページへ遷移
+		String topPage = "http://localhost:8080/lms/";
+		goTo(topPage);
+		//待ち処理
+		visibilityTimeout(By.tagName("body"),20);
+		//エビデンスを取得
+		getEvidence(new Case01() {},"トップページへ画面遷移");
 	}
-
 }

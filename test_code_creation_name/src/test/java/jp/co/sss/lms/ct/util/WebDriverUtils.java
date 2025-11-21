@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -114,5 +115,15 @@ public class WebDriverUtils {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public static void sendKeysIntoNameElement(String name,String text) {
+		WebElement element = webDriver.findElement(By.name(name));
+		element.clear();
+		element.sendKeys(text);
+	}
+	
+	public static void clickButton(String buttonName) {
+		WebElement button = webDriver.findElement(By.cssSelector(buttonName));
+		button.click();
+	}
 }
