@@ -148,4 +148,30 @@ public class WebDriverUtils {
 		String msg = classElement.getText();
 		return msg;
 	}
+	
+	/*
+	 * リンクをクリック
+	 */
+	public static void clickLink(String linkName) {
+		WebElement link = webDriver.findElement(By.linkText(linkName));
+		link.click();
+	}
+	
+	/*
+	 * 別タブに切り替える
+	 */
+	public static void goToNewTab(String linkName) {
+		//現在開いているタブを取得
+		String currentHandle = webDriver.getWindowHandle();
+		//指定リンクを開く
+		WebElement link = webDriver.findElement(By.linkText(linkName));
+		link.click();
+		//新しいタブに切り替える
+		for(String newHandle : webDriver.getWindowHandles()) {
+			if(!newHandle.equals(currentHandle)) {
+				webDriver.switchTo().window(newHandle);
+			}
+		}
+	}
+	
 }
