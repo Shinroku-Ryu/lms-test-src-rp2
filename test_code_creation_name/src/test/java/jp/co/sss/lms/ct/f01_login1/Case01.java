@@ -1,6 +1,7 @@
 package jp.co.sss.lms.ct.f01_login1;
 
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -44,5 +45,10 @@ public class Case01 {
 		visibilityTimeout(By.tagName("body"),20);
 		//エビデンスを取得
 		getEvidence(new Case01() {},"トップページへ画面遷移");
+		
+		//検証
+		String expectedTitle = getTitle();
+		String actualTitle = "ログイン | LMS";
+		assertEquals(expectedTitle,actualTitle,"トップページのタイトルが一致しません");
 	}
 }

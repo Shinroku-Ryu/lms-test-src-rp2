@@ -116,14 +116,36 @@ public class WebDriverUtils {
 		}
 	}
 	
+	/*
+	 * テキストボックスに内容を入力
+	 */
 	public static void sendKeysIntoNameElement(String name,String text) {
 		WebElement element = webDriver.findElement(By.name(name));
 		element.clear();
 		element.sendKeys(text);
 	}
 	
+	/*
+	 * ボタンをクリック
+	 */
 	public static void clickButton(String buttonName) {
 		WebElement button = webDriver.findElement(By.cssSelector(buttonName));
 		button.click();
+	}
+	
+	/*
+	 * ページタイトルを取得
+	 */
+	public static String  getTitle() {
+		webDriver.getTitle();
+		return webDriver.getTitle();
+	}
+	/*
+	 * クラス名を使って要素を取得
+	 */
+	public static String getMsg(String className) {
+		WebElement classElement = webDriver.findElement(By.cssSelector(className));
+		String msg = classElement.getText();
+		return msg;
 	}
 }
