@@ -47,8 +47,8 @@ public class Case03 {
 		getEvidence(new Case03() {},"トップページへ画面遷移");
 		
 		//検証
-		String expectedTitle = getTitle();
-		String actualTitle = "ログイン | LMS";
+		String actualTitle = getTitle();
+		String expectedTitle = "ログイン | LMS";
 		assertEquals(expectedTitle,actualTitle,"トップページのタイトルが一致しません");		
 	}
 
