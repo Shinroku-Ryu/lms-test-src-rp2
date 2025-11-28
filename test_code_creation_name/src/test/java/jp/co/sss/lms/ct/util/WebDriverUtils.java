@@ -217,4 +217,16 @@ public class WebDriverUtils {
 		element.getText();
 		return element.getText();
 	}
+	
+	public static String findPatialLinkElement(String patialLink) {
+		WebElement element = webDriver.findElement(By.partialLinkText(patialLink));
+		element.getText();
+		return element.getText();
+	}
+	
+	public static Boolean elementIsDisplayed(String className) {
+		WebElement element = webDriver.findElement(By.cssSelector(className));
+		Boolean elmentDisplayed = element.isDisplayed();
+		return elmentDisplayed;
+	}
 }
