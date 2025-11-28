@@ -58,10 +58,10 @@ public class Case04 {
 	void test02() {
 		// TODO ここに追加
 		//受講生ユーザーIDを入力
-		sendKeysIntoNameElement("loginId","StudentAA02");
+		sendKeysIntoNameElement("loginId","StudentAA01");
 		getEvidence(new Case04() {},"受講生のログインID入力");
 		//パスワードを入力
-		sendKeysIntoNameElement("password","StudentAA02LMS");
+		sendKeysIntoNameElement("password","StudentAA01LMS");
 		getEvidence(new Case04() {},"受講生のログインPW入力");
 		//ログインボタンを押下
 		clickButton(".btn.btn-primary");

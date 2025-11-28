@@ -61,7 +61,7 @@ public class Case03 {
 		sendKeysIntoNameElement("loginId","StudentAA01");
 		getEvidence(new Case03() {},"受講生のログインID入力");
 		//パスワードを入力
-		sendKeysIntoNameElement("password","StudentAA011");
+		sendKeysIntoNameElement("password","StudentAA01LMS");
 		getEvidence(new Case03() {},"受講生のログインPW入力");
 		//ログインボタンを押下
 		clickButton(".btn.btn-primary");
