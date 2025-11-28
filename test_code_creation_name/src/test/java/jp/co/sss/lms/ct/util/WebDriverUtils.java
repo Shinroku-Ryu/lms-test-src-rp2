@@ -3,6 +3,7 @@ package jp.co.sss.lms.ct.util;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -117,13 +118,14 @@ public class WebDriverUtils {
 	}
 	
 	/*
-	 * テキストボックスに内容を入力
+	 * テキストボックスに内容を入力（Name要素を用いて）
 	 */
 	public static void sendKeysIntoNameElement(String name,String text) {
 		WebElement element = webDriver.findElement(By.name(name));
 		element.clear();
 		element.sendKeys(text);
 	}
+	
 	
 	/*
 	 * ボタンをクリック
@@ -141,7 +143,7 @@ public class WebDriverUtils {
 		return webDriver.getTitle();
 	}
 	/*
-	 * クラス名を使って要素を取得
+	 * クラス名を使ってテキストを取得
 	 */
 	public static String getMsg(String className) {
 		WebElement classElement = webDriver.findElement(By.cssSelector(className));
@@ -174,4 +176,45 @@ public class WebDriverUtils {
 		}
 	}
 	
+	/*
+	 * テキストボックスに内容入力（Id要素を用いて）
+	 */
+	public static void sendKeysIntoIdElement(String id,String text) {
+		WebElement element = webDriver.findElement(By.id(id));
+		element.clear();
+		element.sendKeys(text);
+	}
+	
+	/*
+	 * Urlを取得
+	 */
+	public static String getCurrentUrl() {
+		webDriver.getCurrentUrl();
+		return webDriver.getCurrentUrl();
+	}
+	
+	/*
+	 * クラス名を使ってリストを取得
+	 */
+	public static List<WebElement> getList(String className) {
+		webDriver.findElements(By.cssSelector(className));
+		return webDriver.findElements(By.cssSelector(className));
+	}
+	
+	/*
+	 * Xpathで要素を取得しボタンをクリック
+	 */
+	public static void clickButtonByXpath (String buttonName) {
+		WebElement button = webDriver.findElement(By.xpath(buttonName));
+		button.click();
+	}
+	
+	/*
+	 * id要素のインナーテキストを取得
+	 */
+	public static String findElementById(String id) {
+		WebElement element = webDriver.findElement(By.id(id));
+		element.getText();
+		return element.getText();
+	}
 }
