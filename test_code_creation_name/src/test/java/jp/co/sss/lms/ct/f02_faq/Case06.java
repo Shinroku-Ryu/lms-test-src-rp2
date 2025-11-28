@@ -59,12 +59,12 @@ public class Case06 {
 		// TODO ここに追加
 		//受講生ユーザーIDを入力
 		sendKeysIntoNameElement("loginId", "StudentAA01");
-		getEvidence(new Case06() {
-		}, "受講生のログインID入力");
+		getEvidence(new Case06() {}, "受講生のログインID入力");
+		
 		//パスワードを入力
 		sendKeysIntoNameElement("password", "StudentAA01LMS");
-		getEvidence(new Case06() {
-		}, "受講生のログインPW入力");
+		getEvidence(new Case06() {}, "受講生のログインPW入力");
+		
 		//ログインボタンを押下
 		clickButton(".btn.btn-primary");
 		//エビデンスを取得
@@ -88,9 +88,12 @@ public class Case06 {
 		clickButton(".dropdown-toggle");
 		//エビデンスを取得
 		getEvidence(new Case06() {},"上部メニューをクリック");
+		
 		clickLink("ヘルプ");
 		//エビデンスを取得
 		getEvidence(new Case06() {},"ヘルプ画面に遷移");
+		
+		//検証
 		String expectedTitle = "ヘルプ | LMS";
 		String actualTitle = getTitle();
 		assertEquals(expectedTitle,actualTitle,"画面タイトルが一致しません");
@@ -104,6 +107,8 @@ public class Case06 {
 		goToNewTab("よくある質問");
 		//エビデンスを取得
 		getEvidence(new Case06() {},"よくある質問画面に遷移");
+		
+		//検証
 		String expectedTitle = "よくある質問 | LMS";
 		String actualTitle = getTitle();
 		assertEquals(expectedTitle,actualTitle,"画面タイトルが一致しません");
@@ -114,12 +119,13 @@ public class Case06 {
 	@DisplayName("テスト05 カテゴリ検索で該当カテゴリの検索結果だけ表示")
 	void test05() {
 		// TODO ここに追加
+		//リンクをクリック
 		clickLink("【人材開発支援助成金】");
 		//最下部までスクロール
 		scrollTo("400");
 		visibilityTimeout(By.cssSelector(".col-lg-12"),10);
 		//エビデンスを取得
-		getEvidence(new Case06() {},"カテゴリ検索結果");
+		getEvidence(new Case06() {},"カテゴリ検索での表示結果");
 		
 		//検証
 		String expectedPartialLink = "frequentlyAskedQuestionCategoryId=2";
@@ -137,7 +143,8 @@ public class Case06 {
 		//質問をクリック
 		clickButton("span.text-primary.mr10");
 		//エビデンスを取得
-		getEvidence(new Case06() {},"カテゴリ検索結果");
+		getEvidence(new Case06() {},"質問の回答の表示");
+		
 		//検証
 		Boolean answerIsDisplayed = elementIsDisplayed("span.text-warning.mr10");
 		assertTrue(answerIsDisplayed,"回答が表示されません");

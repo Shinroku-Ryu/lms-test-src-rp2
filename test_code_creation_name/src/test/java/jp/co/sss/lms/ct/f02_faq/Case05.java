@@ -63,12 +63,13 @@ public class Case05 {
 		// TODO ここに追加
 		//受講生ユーザーIDを入力
 		sendKeysIntoNameElement("loginId", "StudentAA01");
-		getEvidence(new Case05() {
-		}, "受講生のログインID入力");
+		//エビデンスを取得
+		getEvidence(new Case05() {}, "受講生のログインID入力");
+		
 		//パスワードを入力
 		sendKeysIntoNameElement("password", "StudentAA01LMS");
-		getEvidence(new Case05() {
-		}, "受講生のログインPW入力");
+		getEvidence(new Case05() {}, "受講生のログインPW入力");
+		
 		//ログインボタンを押下
 		clickButton(".btn.btn-primary");
 		//エビデンスを取得
@@ -92,9 +93,13 @@ public class Case05 {
 		clickButton(".dropdown-toggle");
 		//エビデンスを取得
 		getEvidence(new Case05() {},"上部メニューをクリック");
+		
+		//ヘルプリンクをクリック
 		clickLink("ヘルプ");
 		//エビデンスを取得
 		getEvidence(new Case05() {},"ヘルプ画面に遷移");
+		
+		//検証
 		String expectedTitle = "ヘルプ | LMS";
 		String actualTitle = getTitle();
 		assertEquals(expectedTitle,actualTitle,"画面タイトルが一致しません");
@@ -108,6 +113,8 @@ public class Case05 {
 		goToNewTab("よくある質問");
 		//エビデンスを取得
 		getEvidence(new Case05() {},"よくある質問画面に遷移");
+		
+		//検証
 		String expectedTitle = "よくある質問 | LMS";
 		String actualTitle = getTitle();
 		assertEquals(expectedTitle,actualTitle,"画面タイトルが一致しません");
@@ -122,15 +129,18 @@ public class Case05 {
 		String keyWord = "キャンセル";
 		sendKeysIntoIdElement("form",keyWord);
 		//エビデンスを取得
-		getEvidence(new Case05() {},"検索キーワード入力");
+		getEvidence(new Case05() {},"検索キーワードを入力");
+		
 		//検索ボタンを押下
 		clickButtonByXpath("//form//input[@type='submit' and @value='検索']");
-		getEvidence(new Case05() {},"クリック");
+		getEvidence(new Case05() {},"検索ボタンを押下");
+		
 		//最下部までスクロール
 		scrollTo("400");
 		visibilityTimeout(By.cssSelector(".col-lg-12"),10);
+		
 		//エビデンスを取得
-		getEvidence(new Case05() {},"キーワード検索結果");
+		getEvidence(new Case05() {},"キーワード検索での表示結果");
 		
 		//検証
 		List<WebElement> resultList = getList(".col-lg-12");
