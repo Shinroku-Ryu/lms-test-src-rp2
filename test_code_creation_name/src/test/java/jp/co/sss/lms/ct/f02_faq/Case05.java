@@ -133,7 +133,6 @@ public class Case05 {
 		
 		//検索ボタンを押下
 		clickButtonByXpath("//form//input[@type='submit' and @value='検索']");
-		getEvidence(new Case05() {},"検索ボタンを押下");
 		
 		//最下部までスクロール
 		scrollTo("400");
